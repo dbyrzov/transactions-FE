@@ -1,1 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+html,
+body {
+  margin: 0;
+}
+
+:root {
+  --panel-header-bg-color: rgb(39 112 133);
+  --panel-header-color: white;
+  --panel-content-bg-color: rgb(233 233 233);
+}
+
+input {
+  border: none;
+  border-bottom: 1px solid #383535;
+  padding: 6px 4px;
+
+  &:focus {
+    outline: none;
+    box-shadow: none;
+    border-color: initial; /* or set to your preferred color */
+  }
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

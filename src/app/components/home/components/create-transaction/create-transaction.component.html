@@ -1,0 +1,41 @@
+<app-panel-header
+  [label]="'Make a transfer'"
+  [icon]="'fa-solid fa-right-left'"
+></app-panel-header>
+<section class="create-transaction-content" [formGroup]="transactionForm">
+  <label for="fromAccount">FROM ACCOUNT</label>
+  <input
+    id="fromAccount"
+    type="text"
+    placeholder="Enter account"
+    formControlName="sender"
+  />
+
+  <label for="toAccount">TO ACCOUNT</label>
+  <input
+    id="toAccount"
+    type="text"
+    placeholder="Enter account"
+    formControlName="receiver"
+  />
+
+  <label for="amount">AMOUNT</label>
+  <div class="amount-input">
+    <span>$</span>
+    <input
+      id="amount"
+      type="number"
+      placeholder="0.00"
+      step="0.01"
+      formControlName="amount"
+    />
+  </div>
+
+  <button
+    class="submit-button"
+    [disabled]="!transactionForm.valid"
+    (click)="submit()"
+  >
+    SUBMIT
+  </button>
+</section>

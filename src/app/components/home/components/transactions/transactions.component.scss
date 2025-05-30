@@ -1,0 +1,26 @@
+:host {
+  width: 100%;
+  height: 70vh;
+}
+
+.transactions-content {
+  height: 100%;
+  padding: 1rem;
+  background-color: var(--panel-content-bg-color);
+
+  .transasctions-filters {
+    height: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  .transactions-table {
+    width: 100%;
+    max-height: calc(100% - 3rem);
+    border-top: 1px solid #383535;
+    border-right: 1px solid #383535;
+    overflow-y: auto;
+  }
+}

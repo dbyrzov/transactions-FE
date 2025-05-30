@@ -1,0 +1,11 @@
+.home-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  align-items: start;
+  padding: 10vh 15vw;
+  height: 80vh;
+  gap: 2rem;
+  background-image: url("../../../assets/images/bg-1.jpg");
+  background-size: cover;
+  background-position: center;
+}
