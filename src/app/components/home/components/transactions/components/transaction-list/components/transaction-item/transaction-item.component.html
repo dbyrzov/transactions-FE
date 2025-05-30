@@ -1,0 +1,8 @@
+<div class="transaction-content" (click)="navigate()">
+  <span class="transaction-status {{ item().status }}"></span>
+  <span class="size-m">{{
+    item().created_at | date : "yyyy-MM-dd HH:mm:ss"
+  }}</span>
+  <span class="size-xl">{{ item().receiver }}</span>
+  <span class="size-m"> {{ item().amount }}</span>
+</div>

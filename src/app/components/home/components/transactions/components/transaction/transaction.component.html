@@ -1,0 +1,61 @@
+@if (transaction()) {
+<app-panel-header
+  [label]="'Details for transaction ' + transaction()!.id"
+  [icon]="'fa-solid fa-briefcase'"
+></app-panel-header>
+
+<section class="transactions-content">
+  <table class="transaction-table">
+    <tr>
+      <td class="label">Amount</td>
+      <td class="value">{{ transaction()!.amount }}</td>
+    </tr>
+    <tr>
+      <td class="label">Date</td>
+      <td class="value">
+        {{ transaction()!.created_at | date : "yyyy-MM-dd HH:mm:ss" }}
+      </td>
+    </tr>
+    <tr>
+      <td class="label">To Contractor</td>
+      <td class="value">{{ transaction()!.receiver }}</td>
+    </tr>
+    <tr>
+      <td class="label">State</td>
+      <td class="value">{{ transaction()!.status }}</td>
+    </tr>
+  </table>
+
+  <footer class="transaction-footer">
+    <span style="margin-right: 16px">Change transaction state</span>
+    <div class="dropdown">
+      <button (click)="toggleDropdown()" class="dropdown-button">
+        {{ transaction()!.status }}
+      </button>
+      @if (showDropdown()) {
+      <div id="dropdownMenu" class="dropdown-content">
+        <button
+          [disabled]="transaction()!.status === 'payed'"
+          (click)="selectStatus('payed')"
+        >
+          Payed
+        </button>
+        <button
+          [disabled]="transaction()!.status === 'sent'"
+          (click)="selectStatus('sent')"
+        >
+          Sent
+        </button>
+        <button
+          [disabled]="transaction()!.status === 'received'"
+          (click)="selectStatus('received')"
+        >
+          Received
+        </button>
+      </div>
+      }
+    </div>
+  </footer>
+</section>
+
+} @else { Loading ... }

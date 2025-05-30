@@ -1,0 +1,39 @@
+<app-panel-header
+  [label]="'Recent transactions'"
+  [icon]="'fa-solid fa-briefcase'"
+></app-panel-header>
+
+<section class="transactions-content">
+  <div class="transasctions-filters">
+    <input
+      type="search"
+      (keyup)="performSearch($event)"
+      (input)="performSearch($event)"
+    />
+
+    <div>
+      Sort by:
+      <button (click)="updateSort('date')">
+        Date @if((sort_by | async) === 'date') {
+        <i class="{{ sortArrow | async }}"></i>
+        }
+      </button>
+      <button (click)="updateSort('beneficiary')">
+        Beneficiary @if((sort_by | async) === 'beneficiary') {
+        <i class="{{ sortArrow | async }}"></i>
+        }
+      </button>
+      <button (click)="updateSort('amount')">
+        Amount @if((sort_by | async) === 'amount') {
+        <i class="{{ sortArrow | async }}"></i>
+        }
+      </button>
+    </div>
+  </div>
+
+  <div class="transactions-table">
+    @for (item of transactions(); track $index) {
+    <app-transaction-item [item]="item"></app-transaction-item>
+    }
+  </div>
+</section>

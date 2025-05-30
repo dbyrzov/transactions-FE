@@ -1,0 +1,36 @@
+.size-m {
+  width: 20%;
+}
+
+.size-xl {
+  width: 60%;
+}
+
+.transaction-content {
+  display: flex;
+  align-items: center;
+  height: 3rem;
+  border-bottom: 1px solid #383535;
+  padding-right: 8px;
+
+  .transaction-status {
+    width: 8px;
+    height: 3rem;
+    margin-right: 8px;
+
+    &.sent {
+      background-color: #d53b03;
+    }
+    &.received {
+      background-color: #c7c70c;
+    }
+    &.payed {
+      background-color: #1a9d7d;
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+    background-color: #ababab;
+  }
+}
